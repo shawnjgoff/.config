@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper>
+    <name>Stripes</name>
+    <filename>/usr/share/backgrounds/gnome/Stripes.jpg</filename>
+    <options>zoom</options>
+  </wallpaper>
+</wallpapers>
