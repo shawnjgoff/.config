@@ -2,8 +2,9 @@
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
   <wallpaper>
-    <name>Stripes</name>
-    <filename>/usr/share/backgrounds/gnome/Stripes.jpg</filename>
-    <options>zoom</options>
+    <name>background-blue.png</name>
+    <filename>/home/shawn/.cache/gnome-control-center/backgrounds/70aa40ff95284c517692c61c268fecc838de1c823de89bd35422e3ca21b3cdab</filename>
+    <shade_type>solid</shade_type>
+    <source_url>file:///home/shawn/.config/awesome/themes/redhalo/background-blue.png</source_url>
   </wallpaper>
 </wallpapers>

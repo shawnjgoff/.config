@@ -1,0 +1,112 @@
+#==============================================================================
+#                                 conkyrc_grey
+#
+#  author  : SLK
+#  version : v2011011601
+#  license : Distributed under the terms of GNU GPL version 2 or later
+#
+#==============================================================================
+
+background yes
+update_interval 2
+
+cpu_avg_samples 2
+net_avg_samples 2
+temperature_unit celsius
+
+double_buffer yes
+no_buffers yes
+text_buffer_size 2048
+
+gap_x 10
+gap_y 30
+minimum_size 190 450
+maximum_width 1000
+own_window no
+border_inner_margin 0
+border_outer_margin 0
+alignment tr
+
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+override_utf8_locale yes
+use_xft yes
+xftfont URWGothicL-Book:size=8
+xftalpha 0.5
+uppercase no
+
+top_cpu_separate yes
+
+default_color FFFFFF
+color1 DDDDDD
+color2 AAAAAA
+color3 888888
+color4 666666
+
+lua_load ~/.config/conky/circles-shawn/conky_widgets.lua
+lua_draw_hook_pre widgets
+#lua_draw_hook_post main
+
+TEXT
+${voffset 0}
+${goto 95}${color4}${font URWGothicL-Demi:size=22}${time %e}${color1}${offset -50}${font URWGothicL-Demi:size=10}${goto 130}${time %A}
+${goto 95}${color2}${voffset -2}${font URWGothicL-Demi:size=9}${time %b}${voffset -2}${color3}${font URWGothicL-Demi:size=12} ${time %Y}${font}
+
+${voffset 70}
+${goto 90}${font URWGothicL-Demi:size=12,weight:bold}${color}CPU
+${voffset -50} ${font URWGothicL-Book:size=8,weight:bold}${color}CPU\
+${goto 160}${color1}${top cpu 1}%  ${top name 1}
+${goto 160}${color2}${top cpu 2}%  ${top name 2}
+${goto 160}${color3}${top cpu 3}%  ${top name 3}
+${goto 160}${cpugraph 10,100 666666 666666}
+${goto 160}${voffset -10}${color}${threads} process 
+
+${voffset 35}
+${goto 90}${font URWGothicL-Demi:size=12,weight:bold}${color}MEM\
+${voffset -30}${font URWGothicL-Book:size=7,weight:normal}
+${goto 160}${color1}${top_mem mem 1}%  ${top_mem name 1}
+${goto 160}${color2}${top_mem mem 2}%  ${top_mem name 2}
+${goto 160}${color3}${top_mem mem 3}%  ${top_mem name 3}
+
+${voffset 45}
+${goto 90}${font URWGothicL-Demi:size=12,weight:bold}${color}DISKS\
+${voffset -30}${font URWGothicL-Book:size=7,weight:normal}
+${goto 160}${diskiograph 30,100 666666 666666}${voffset -30}
+${goto 160}${font inconsolata:size=7,weight:normal}${color}used: ${fs_used /home} /home
+${goto 160}${font inconsolata:size=7,weight:normal}${color}used: ${fs_used /} /
+
+${voffset 50}
+${goto 90}${font URWGothicL-Demi:size=12,weight:bold}${color}BATTERY\
+${voffset -15}${font URWGothicL-Book:size=7,weight:normal}
+${goto 160}${color}${battery_percent BAT1}% | ${battery_time BAT1}
+${goto 160}${diskiograph 30,100 666666 666666}${voffset -30}
+${goto 160}${diskiograph 30,100 666666 666666}${voffset -30}
+
+${voffset 60}
+${goto 70}${font URWGothicL-Demi:size=16,weight:bold}${color3}NET\
+${color2}${font inconsolata:size=7,weight:bold}${color1}
+${if_up eth0}${goto 90}eth0  ${addr eth0} ${endif}
+${if_up wlan0}${goto 90}wlan0 ${addr wlan0}${endif}
+${if_up ppp0}${goto 90}ppp0  ${addr ppp0}${endif}
+
+${goto 90}${font URWGothicL-Demi:size=7,weight:bold}${color}open ports: ${goto 180}${color2}${tcp_portmon 1 65535 count}
+
+${goto 90}${font URWGothicL-Demi:size=8,weight:bold}${color}${offset 10}IP${goto 180}DPORT
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  0}${goto 180}${tcp_portmon 1 65535 rport  0}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  1}${goto 180}${tcp_portmon 1 65535 rport  1}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  2}${goto 180}${tcp_portmon 1 65535 rport  2}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  3}${goto 180}${tcp_portmon 1 65535 rport  3}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  4}${goto 180}${tcp_portmon 1 65535 rport  4}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  5}${goto 180}${tcp_portmon 1 65535 rport  5}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  6}${goto 180}${tcp_portmon 1 65535 rport  6}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  7}${goto 180}${tcp_portmon 1 65535 rport  7}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  8}${goto 180}${tcp_portmon 1 65535 rport  8}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip  9}${goto 180}${tcp_portmon 1 65535 rport  9}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip 10}${goto 180}${tcp_portmon 1 65535 rport 10}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip 11}${goto 180}${tcp_portmon 1 65535 rport 11}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip 12}${goto 180}${tcp_portmon 1 65535 rport 12}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip 13}${goto 180}${tcp_portmon 1 65535 rport 13}
+${goto 90}${font inconsolata:size=7,weight:normal}${color1}${tcp_portmon 1 65535 rip 14}${goto 180}${tcp_portmon 1 65535 rport 14}

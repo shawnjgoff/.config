@@ -34,7 +34,14 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-#beautiful.init("/home/shawn/.config/awesome/themes/default/theme.lua")
+-- beautiful.init("/home/shawn/.config/awesome/themes/default/theme.lua")
+-- beautiful.init("/usr/share/awesome/themes/dust/theme.lua")
+-- beautiful.init("/usr/share/awesome/themes/foo/theme.lua")
+-- beautiful.init("/usr/share/awesome/themes/grey-new/theme.lua")
+-- beautiful.init("/usr/share/awesome/themes/grey-old/theme.lua")
+-- beautiful.init("/usr/share/awesome/themes/niceandclean/theme.lua")
+-- beautiful.init("/usr/share/awesome/themes/rbown/theme.lua")
+beautiful.init("/home/shawn/.config/awesome/themes/redhalo/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -51,18 +58,17 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.floating,
     awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+    awful.layout.suit.max,
 }
 -- }}}
 
@@ -199,12 +205,12 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "j",
         function ()
-            awful.client.focus.byidx( 1)
+            awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "k",
         function ()
-            awful.client.focus.byidx(-1)
+            awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
@@ -212,8 +218,8 @@ globalkeys = awful.util.table.join(
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -335,6 +341,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    { rule = { class = "Firefox" , instance = "Download" },
+      properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
@@ -370,5 +378,17 @@ end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-awful.util.spawn("urxvtd")
+
+
+function run_once(cmd)
+  findme = cmd
+  firstspace = cmd:find(" ")
+  if firstspace then
+    findme = cmd:sub(0, firstspace-1)
+  end
+  awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+end
+
+run_once("urxvtd")
+run_once("conky")
 -- }}}
