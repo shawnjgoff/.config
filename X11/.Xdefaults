@@ -41,6 +41,8 @@ URxvt.colorUL     : #ccdc90
 URxvt.colorIT     : #80d4aa
 
 URxvt.scrollstyle : plain
+URxvt.searchable-scrollback: CM-s
+URxvt.saveLines   : 16384
 
 URxvt*font: xft:Inconsolata:pixelsize=12:antialias=true:hinting=true
 #URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=10:antialias=true:hinting=true
