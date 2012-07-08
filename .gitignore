@@ -1,1 +1,5 @@
 *.swp
+bash/.bash_history
+*history*
+/vlc
+/tomboy
