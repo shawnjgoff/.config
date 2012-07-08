@@ -58,10 +58,10 @@ theme.bg_urgent = "#f92671"
 theme.bg_disabled = "#5e7175"
 theme.bg_hover = "#5e7175"
 
-theme.border_width = 0
-theme.border_normal = "#505050"
-theme.border_focus = "#292929"
-theme.border_marked = "#ce5666"
+theme.border_width = 2
+theme.border_normal = "#000000"
+theme.border_focus = "#34bdef"
+theme.border_marked = "#ff5566"
 
 --{{{ Taglist icons
 --theme.taglist_squares         = true
