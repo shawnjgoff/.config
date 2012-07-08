@@ -392,4 +392,4 @@ end
 
 run_once("urxvtd")
 run_once("conky")
--- }}}
+run_once("parcellite")
