@@ -113,7 +113,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.2,
 		fg_colour='0xFFFFFF',
@@ -127,7 +127,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu7',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.0,
 		fg_colour='0xFFFFFF',
@@ -141,7 +141,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu6',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.0,
 		fg_colour='0xFFFFFF',
@@ -155,7 +155,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu5',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.0,
 		fg_colour='0xFFFFFF',
@@ -169,7 +169,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu4',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.0,
 		fg_colour='0xFFFFFF',
@@ -183,7 +183,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu3',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.0,
 		fg_colour='0xFFFFFF',
@@ -197,7 +197,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu2',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.0,
 		fg_colour='0xFFFFFF',
@@ -211,7 +211,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu1',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.0,
 		fg_colour='0xFFFFFF',
@@ -225,7 +225,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu0',
-		max=60,
+		max=50,
 		bg_colour='0xFFFFFF',
 		bg_alpha=0.0,
 		fg_colour='0xFFFFFF',

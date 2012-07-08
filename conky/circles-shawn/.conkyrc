@@ -7,7 +7,7 @@
 #
 #==============================================================================
 
-background yes
+background no
 update_interval 2
 
 cpu_avg_samples 2
@@ -23,11 +23,11 @@ gap_y 30
 minimum_size 190 450
 maximum_width 1000
 own_window no
-border_inner_margin 0
+border_innerayesmargin 0
 border_outer_margin 0
 alignment tr
 
-draw_shades no
+draw_shades  no
 draw_outline no
 draw_borders no
 draw_graph_borders no
@@ -56,34 +56,32 @@ ${goto 95}${color4}${font URWGothicL-Demi:size=22}${time %e}${color1}${offset -5
 ${goto 95}${color2}${voffset -2}${font URWGothicL-Demi:size=9}${time %b}${voffset -2}${color3}${font URWGothicL-Demi:size=12} ${time %Y}${font}
 
 ${voffset 70}
-${goto 90}${font URWGothicL-Demi:size=12,weight:bold}${color}CPU
-${voffset -50} ${font URWGothicL-Book:size=8,weight:bold}${color}CPU\
+${goto 90}${font URWGothicL-Demi:size=12,weight:normal}${color}CPU
+${voffset -50}${font URWGothicL-Book:size=7,weight:normal}\
 ${goto 160}${color1}${top cpu 1}%  ${top name 1}
 ${goto 160}${color2}${top cpu 2}%  ${top name 2}
 ${goto 160}${color3}${top cpu 3}%  ${top name 3}
 ${goto 160}${cpugraph 10,100 666666 666666}
 ${goto 160}${voffset -10}${color}${threads} process 
 
-${voffset 35}
-${goto 90}${font URWGothicL-Demi:size=12,weight:bold}${color}MEM\
+${voffset 40}
+${goto 90}${font URWGothicL-Demi:size=12,weight:normal}${color}MEM\
 ${voffset -30}${font URWGothicL-Book:size=7,weight:normal}
 ${goto 160}${color1}${top_mem mem 1}%  ${top_mem name 1}
 ${goto 160}${color2}${top_mem mem 2}%  ${top_mem name 2}
 ${goto 160}${color3}${top_mem mem 3}%  ${top_mem name 3}
 
 ${voffset 45}
-${goto 90}${font URWGothicL-Demi:size=12,weight:bold}${color}DISKS\
-${voffset -30}${font URWGothicL-Book:size=7,weight:normal}
-${goto 160}${diskiograph 30,100 666666 666666}${voffset -30}
-${goto 160}${font inconsolata:size=7,weight:normal}${color}used: ${fs_used /home} /home
-${goto 160}${font inconsolata:size=7,weight:normal}${color}used: ${fs_used /} /
+${goto 90}${font URWGothicL-Demi:size=12,weight:normal}${color}DISKS
+${voffset -30}${font URWGothicL-Book:size=7,weight:normal}\
+${goto 160}${color1}used: ${fs_used /home} /home
+${goto 160}${color1}used: ${fs_used /} /
+${goto 160}${color}${diskiograph 30,100 666666 666666}
 
-${voffset 50}
-${goto 90}${font URWGothicL-Demi:size=12,weight:bold}${color}BATTERY\
+${voffset 10}
+${goto 90}${font URWGothicL-Demi:size=12,weight:normal}${color}BATTERY\
 ${voffset -15}${font URWGothicL-Book:size=7,weight:normal}
 ${goto 160}${color}${battery_percent BAT1}% | ${battery_time BAT1}
-${goto 160}${diskiograph 30,100 666666 666666}${voffset -30}
-${goto 160}${diskiograph 30,100 666666 666666}${voffset -30}
 
 ${voffset 60}
 ${goto 70}${font URWGothicL-Demi:size=16,weight:bold}${color3}NET\
