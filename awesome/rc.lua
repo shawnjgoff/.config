@@ -87,7 +87,8 @@ myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
-   { "quit", awesome.quit }
+   { "quit", awesome.quit },
+   { "logout", function ()  awful.util.spawn("gnome-session-quit") end }
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
